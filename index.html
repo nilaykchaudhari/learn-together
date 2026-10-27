@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learn Together – Student Peer Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#home">Learn Together</a>
+  <nav>
+    <a href="#people">Students</a>
+    <a href="#sessions">Sessions</a>
+    <a href="#requests">My requests</a>
+    <a href="#join">Join</a>
+    <button id="themeBtn" class="ghost" aria-label="Switch dark or light mode">Dark mode</button>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div>
+    <h1>Someone in your college already knows this.</h1>
+    <p class="lead">Learn Together connects students who are good at a technology or subject with students who want to learn it.</p>
+  </div>
+  <div class="finder">
+    <label for="topicInput">What do you want to learn?</label>
+    <input id="topicInput" type="text" placeholder="Try: python, DBMS, react, data structures" autocomplete="off">
+    <ul id="finderResults" class="results"></ul>
+  </div>
+</section>
+
+<section id="people">
+  <h2>Students</h2>
+  <div class="chips" id="roleFilter">
+    <button class="chip on" data-role="all">Everyone</button>
+    <button class="chip" data-role="mentor">Can teach</button>
+    <button class="chip" data-role="learner">Want to learn</button>
+  </div>
+  <div id="peopleList" class="grid"></div>
+</section>
+
+<section id="sessions">
+  <h2>Study sessions</h2>
+  <div class="split">
+    <div id="sessionList" class="stack"></div>
+    <form id="sessionForm" class="panel">
+      <h3>Host a session</h3>
+      <label>Topic<input name="topic" required maxlength="60"></label>
+      <label>Date and time<input name="when" type="datetime-local" required></label>
+      <label>Where
+        <select name="mode"><option>Online</option><option>Library</option><option>Classroom</option><option>Hostel common room</option></select>
+      </label>
+      <button class="primary" type="submit">Create session</button>
+      <p class="note" id="sessionNote">Create your profile first to host a session.</p>
+    </form>
+  </div>
+</section>
+
+<section id="requests">
+  <h2>My requests</h2>
+  <div id="requestList" class="stack"></div>
+</section>
+
+<section id="join">
+  <h2>Create your profile</h2>
+  <form id="joinForm" class="panel narrow">
+    <label>Name<input name="name" required maxlength="40"></label>
+    <label>Branch and semester<input name="branch" placeholder="IT, Sem 5" required maxlength="30"></label>
+    <fieldset>
+      <legend>I want to</legend>
+      <label class="inline"><input type="radio" name="role" value="mentor" checked> Teach what I know</label>
+      <label class="inline"><input type="radio" name="role" value="learner"> Learn something new</label>
+    </fieldset>
+    <label>Topics (separate with commas)<input name="skills" placeholder="python, dbms, web development" required></label>
+    <button class="primary" type="submit">Join Learn Together</button>
+  </form>
+  <p id="meBox" class="note"></p>
+</section>
+</main>
+
+<footer>Learn Together – a peer learning prototype. Data is saved only in this browser.</footer>
+<div id="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
